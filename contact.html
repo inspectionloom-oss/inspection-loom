@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Inspection Loom</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-search-location"></i>
+                Inspection Loom
+            </div>
+            
+            <div class="global-selector">
+                <div class="selected-country" onclick="toggleCountryDropdown()">
+                    <img src="https://flagcdn.com/w40/us.png" alt="USA" id="selectedFlag">
+                    <span id="selectedCurrency">USD $</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="country-dropdown" id="countryDropdown">
+                    <div class="country-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search any country..." id="countrySearch" onkeyup="filterCountries()">
+                    </div>
+                    <div class="country-list" id="countryList"></div>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="book.html">Book Order</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="page-header">
+        <h1><i class="fas fa-headset"></i> Contact <span class="gradient-text">Us</span></h1>
+        <p>We're here to help 24/7. Get in touch with us anytime.</p>
+    </section>
+
+    <!-- Contact Cards -->
+    <section class="contact-info-section">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>For general inquiries</p>
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    inspectionloom@gmail.com
+                </div>
+                <div class="contact-detail" style="font-size: 0.9rem;">
+                    <i class="fas fa-clock"></i>
+                    Reply within 2 hours
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>Call Us</h3>
+                <p>24/7 Support Line</p>
+                <div class="contact-detail">
+                    <i class="fas fa-phone"></i>
+                    +1 (888) 123-4567
+                </div>
+                <span class="hours-badge">Always Available</span>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp</h3>
+                <p>Quick messaging</p>
+                <div class="contact-detail">
+                    <i class="fab fa-whatsapp"></i>
+                    +1 (888) 123-4567
+                </div>
+                <span class="hours-badge">Live on WhatsApp</span>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Head Office</h3>
+                <p>Visit our office</p>
+                <div class="contact-detail">
+                    <i class="fas fa-building"></i>
+                    123 Business Ave, Suite 100
+                </div>
+                <div class="contact-detail">
+                    New York, NY 10001, USA
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-main">
+        <div class="contact-wrapper">
+            <div class="contact-form-container">
+                <h2><i class="fas fa-paper-plane"></i> Send Message</h2>
+                <p class="form-subtitle">We'll get back to you within 24 hours</p>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> First Name *</label>
+                            <input type="text" name="first_name" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Last Name *</label>
+                            <input type="text" name="last_name" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address *</label>
+                            <input type="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" name="phone" placeholder="+1 234 567 8900">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Your Message *</label>
+                        <textarea name="message" placeholder="Please describe your inquiry in detail..." required></textarea>
+                    </div>
+
+                    <div class="crypto-note" style="margin-top: 1rem; padding: 1rem;">
+                        <h4 style="margin-bottom: 0;">
+                            <i class="fab fa-bitcoin"></i>
+                            <i class="fab fa-ethereum"></i>
+                            <i class="fab fa-binance"></i>
+                            Pay with Crypto?
+                        </h4>
+                        <p style="margin-bottom: 0;">Ask about our crypto payment options!</p>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="contact-info-side">
+                <div class="info-content">
+                    <h3><i class="fas fa-comment-dots"></i> Let's Talk</h3>
+                    <p>Have questions? Choose your preferred way to reach us.</p>
+
+                    <ul class="quick-contact-list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <span>Email</span>
+                                <strong>inspectionloom@gmail.com</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="contact-text">
+                                <span>Phone</span>
+                                <strong>+1 (888) 123-4567</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="contact-text">
+                                <span>WhatsApp</span>
+                                <strong>+1 (888) 123-4567</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div class="contact-text">
+                                <span>Working Hours</span>
+                                <strong>24/7 - 365 Days</strong>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="social-connect">
+                        <h4>Connect With Us</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="crypto-note">
+                        <h4><i class="fab fa-bitcoin"></i> Crypto Accepted</h4>
+                        <p>We accept Bitcoin, Ethereum, Binance Coin and more! Ask about our crypto discounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-placeholder">
+                <div class="map-content">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Global Presence</h3>
+                    <p>Serving clients worldwide with inspection services</p>
+                    <button class="map-btn" onclick="window.open('https://maps.google.com/?q=New+York+USA', '_blank')">
+                        <i class="fas fa-external-link-alt"></i>
+                        View on Google Maps
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Inspection Loom</h3>
+                <p>Professional inspection services with global coverage and crypto payments.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="book.html"><i class="fas fa-chevron-right"></i> Book Now</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> inspectionloom@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +1 (888) 123-4567</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Inspection Loom. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Payment Section -->
+<div class="form-section payment-section">
+    <h3><i class="fas fa-credit-card"></i> Payment Details</h3>
+
+    <!-- Fake Card Input (Front-end only, styling) -->
+    <div class="card-payment-form">
+        <label>Cardholder Name</label>
+        <input type="text" placeholder="John Doe">
+
+        <label>Card Number</label>
+        <input type="text" placeholder="1234 5678 9012 3456">
+
+        <label>Expiry Date</label>
+        <input type="text" placeholder="MM/YY">
+
+        <label>CVV</label>
+        <input type="text" placeholder="123">
+    </div>
+
+    <hr>
+
+    <!-- Crypto Payment -->
+    <div class="crypto-payment">
+        <h4>Or Pay with Cryptocurrency</h4>
+        <p>Send payment to USDT (TRC20):</p>
+        <div class="crypto-address">
+            <code id="cryptoAddress">TABC1234XYZ5678TRC20ADDRESS</code>
+            <button type="button" onclick="copyToClipboard('cryptoAddress')">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+        </div>
+        <p>Amount: <strong>149 USD (≈0.082 USDT)</strong></p>
+    </div>
+
+    <!-- Confirm Button -->
+    <div class="form-actions">
+        <a href="https://www.binance.com/en/paylink/YOUR_PAYMENT_LINK" class="btn btn-primary btn-large btn-glow" target="_blank">
+            <i class="fas fa-check-circle"></i> Confirm & Pay
+        </a>
+    </div>
+</div>
+</body>
+</html>

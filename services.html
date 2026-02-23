@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Inspection Loom | Car Inspection Packages</title>
+    <meta name="description" content="Choose from our comprehensive car inspection packages with prices in your local currency.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-search-location"></i>
+                Inspection Loom
+            </div>
+            
+            <div class="global-selector">
+                <div class="selected-country" onclick="toggleCountryDropdown()">
+                    <img src="https://flagcdn.com/w40/us.png" alt="USA" id="selectedFlag">
+                    <span id="selectedCurrency">USD $</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="country-dropdown" id="countryDropdown">
+                    <div class="country-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search any country..." id="countrySearch" onkeyup="filterCountries()">
+                    </div>
+                    <div class="country-list" id="countryList"></div>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="book.html">Book Order</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our <span class="gradient-text">Services</span></h1>
+        <p>Choose the perfect inspection package for your vehicle • Available in 200+ countries</p>
+        <div class="country-indicator" id="countryIndicator">
+            <img src="https://flagcdn.com/w40/us.png" alt="Current Country" id="indicatorFlag">
+            <span>Service available in <strong id="currentCountryName">United States (USD $)</strong></span>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-page">
+        <div class="container">
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Currency Note -->
+    <section class="currency-note">
+        <div class="container">
+            <div class="note-card">
+                <i class="fas fa-exchange-alt"></i>
+                <div>
+                    <h4>Live Currency Conversion</h4>
+                    <p>All prices are automatically converted to your local currency based on real-time exchange rates. Select your country from the dropdown above to see prices in your currency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4><i class="fas fa-coins"></i> How are prices converted?</h4>
+                    <p>Prices are automatically converted to your local currency. Select your country to see exact prices.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-globe"></i> Do you serve my country?</h4>
+                    <p>Yes! We operate in 200+ countries worldwide. Select your country to see prices in your local currency.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-credit-card"></i> How do I pay?</h4>
+                    <p>Pay in your local currency or crypto. Multiple payment methods available including credit card, crypto, and bank transfer.</p>
+                </div>
+                <div class="faq-item">
+                    <h4><i class="fas fa-clock"></i> Which package should I choose?</h4>
+                    <p>Basic for essentials, Standard for comprehensive, Premium for complete peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Book Your Inspection?</h2>
+            <p>Choose your package above • Prices in your currency • Book now and get instant confirmation</p>
+            <a href="book.html" class="btn btn-primary btn-glow">Book Inspection Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Inspection Loom</h3>
+                <p>Your trusted partner in professional car inspections worldwide. Available in 200+ countries.</p>
+                <div class="accepted-currencies">
+                    <span>All Currencies Accepted:</span>
+                    <i class="fas fa-dollar-sign"></i>
+                    <i class="fas fa-euro-sign"></i>
+                    <i class="fas fa-pound-sign"></i>
+                    <i class="fas fa-yen-sign"></i>
+                    <i class="fas fa-rupee-sign"></i>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="book.html"><i class="fas fa-chevron-right"></i> Book Order</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +1 (800) 555-0199</li>
+                    <li><i class="fas fa-envelope"></i> inspectionloom@gmail.com</li>
+                    <li><i class="fas fa-globe"></i> www.inspectionloom.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Inspection Loom. All rights reserved. Serving customers in 200+ countries worldwide.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

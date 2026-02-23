@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Inspection - Inspection Loom</title>
+    <meta name="description" content="Book your professional car inspection service online. Pay in your local currency.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-search-location"></i>
+                Inspection Loom
+            </div>
+            
+            <div class="global-selector">
+                <div class="selected-country" onclick="toggleCountryDropdown()">
+                    <img src="https://flagcdn.com/w40/us.png" alt="USA" id="selectedFlag">
+                    <span id="selectedCurrency">USD $</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="country-dropdown" id="countryDropdown">
+                    <div class="country-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search any country..." id="countrySearch" onkeyup="filterCountries()">
+                    </div>
+                    <div class="country-list" id="countryList"></div>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="book.html" class="active">Book Order</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Book Your <span class="gradient-text">Inspection</span></h1>
+        <p>Fill in the details below • Prices shown in <span id="currentCurrencyDisplay">USD ($)</span></p>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-form-container">
+                <form id="bookingForm" class="booking-form">
+                    <!-- Customer Details -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Customer Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8900">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="countrySelect">Country *</label>
+                                <select id="countrySelect" name="country" required>
+                                    <option value="">Select your country</option>
+                                    <option value="US">United States (USD $)</option>
+                                    <option value="GB">United Kingdom (GBP £)</option>
+                                    <option value="EU">European Union (EUR €)</option>
+                                    <option value="JP">Japan (JPY ¥)</option>
+                                    <option value="AE">UAE (AED د.إ)</option>
+                                    <option value="AU">Australia (AUD A$)</option>
+                                    <option value="CA">Canada (CAD C$)</option>
+                                    <option value="IN">India (INR ₹)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Full Address *</label>
+                            <textarea id="address" name="address" required placeholder="Street address, building, apartment..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Car Details -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-car"></i> Car Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carBrand">Car Brand *</label>
+                                <input type="text" id="carBrand" name="carBrand" required placeholder="e.g., Toyota, BMW">
+                            </div>
+                            <div class="form-group">
+                                <label for="carModel">Model *</label>
+                                <input type="text" id="carModel" name="carModel" required placeholder="e.g., Camry, X5">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modelYear">Model Year *</label>
+                                <input type="number" id="modelYear" name="modelYear" required min="1900" max="2026" placeholder="2020">
+                            </div>
+                            <div class="form-group">
+                                <label for="registration">Registration Number *</label>
+                                <input type="text" id="registration" name="registration" required placeholder="ABC-123">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mileage">Mileage (km) *</label>
+                                <input type="number" id="mileage" name="mileage" required placeholder="e.g., 50000">
+                            </div>
+                            <div class="form-group">
+                                <label for="fuelType">Fuel Type *</label>
+                                <select id="fuelType" name="fuelType" required>
+                                    <option value="">Select fuel type</option>
+                                    <option value="petrol">Petrol</option>
+                                    <option value="diesel">Diesel</option>
+                                    <option value="hybrid">Hybrid</option>
+                                    <option value="electric">Electric</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inspection Details -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-calendar-check"></i> Inspection Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="package">Inspection Package *</label>
+                                <select id="package" name="package" required onchange="updatePrice()">
+                                    <option value="">Select a package</option>
+                                    <option value="basic" data-usd="149">Basic Inspection</option>
+                                    <option value="detailed" data-usd="299">150+ Point Inspection</option>
+                                    <option value="premium" data-usd="549">Premium Package</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Preferred Date *</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="time">Preferred Time *</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Inspection Location *</label>
+                                <select id="location" name="location" required>
+                                    <option value="">Select location</option>
+                                    <option value="home">At Home</option>
+                                    <option value="workshop">At Workshop</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Price Summary -->
+                        <div class="price-summary">
+                            <div class="price-row">
+                                <span>Selected Package:</span>
+                                <span id="selectedPackageName">-</span>
+                            </div>
+                            <div class="price-row total">
+                                <span>Total Amount:</span>
+                                <span id="totalPrice">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Section -->
+                    <div class="form-section payment-section">
+                        <h3><i class="fas fa-credit-card"></i> Payment Details</h3>
+                        <div class="payment-method-tabs">
+                            <button type="button" class="payment-tab active" onclick="switchPaymentMethod('crypto')">
+                        
+                        </div>
+
+                        <!-- Crypto Payment -->
+                        <div id="cryptoPayment" class="payment-box active">
+                            <div class="payment-method">
+                                <i class="fab fa-bitcoin"></i>
+                                <span>Cryptocurrency Payment</span>
+                            </div>
+                            <div class="crypto-options">
+                                <label>
+                                    <input type="radio" name="crypto" value="BTC" checked> Bitcoin (BTC)
+                                </label>
+                                <label>
+                                    <input type="radio" name="crypto" value="ETH"> Ethereum (ETH)
+                                </label>
+                                <label>
+                                    <input type="radio" name="crypto" value="USDT"> USDT (TRC20)
+                                </label>
+                            </div>
+                            <div class="payment-details">
+                                <p>Send payment to:</p>
+                                <div class="crypto-address">
+                                    <code id="cryptoAddress">1219409981</code>
+                                    <button type="button" class="copy-btn" onclick="copyToClipboard('cryptoAddress')">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <p class="payment-note">Amount: <span id="cryptoAmount">0.0025 BTC</span></p>
+                            </div>
+                        </div>
+
+                     
+                    </div>
+
+                    <div class="form-actions">
+    <a href="card.html" class="btn btn-primary btn-large btn-glow">
+        <i class="fas fa-check-circle"></i> Confirm Booking
+    </a>
+</div> 
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup">
+        <div class="popup-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>Booking Confirmed!</h3>
+            <p>Thank you for choosing Inspection Loom. We've sent a confirmation to your email.</p>
+            <div class="payment-instructions">
+                <p>Please complete your payment of <strong id="popupAmount">$149</strong></p>
+                <p class="payment-reminder">Your booking reference: <strong id="bookingRef">IL-2024-001</strong></p>
+            </div>
+            <button class="btn btn-primary" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Inspection Loom</h3>
+                <p>Your trusted partner in professional car inspections worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="book.html">Book Order</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> inspectionloom@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +1 (800) 555-0199</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Inspection Loom. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
